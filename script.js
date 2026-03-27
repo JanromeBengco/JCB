@@ -47,7 +47,21 @@ const profilePhoto = document.getElementById("profilePhoto");
 const profileFallback = document.getElementById("profileFallback");
 
 if (profilePhoto && profileFallback) {
+  const photoCandidates = [
+    "./profile-photo.jpg",
+    "./assets/profile-photo.jpg",
+    "profile-photo.jpg",
+    "assets/profile-photo.jpg",
+  ];
+  let photoTryIndex = 0;
+
   profilePhoto.addEventListener("error", () => {
+    photoTryIndex += 1;
+    if (photoTryIndex < photoCandidates.length) {
+      profilePhoto.src = photoCandidates[photoTryIndex];
+      return;
+    }
+
     profilePhoto.classList.add("hide");
     profileFallback.classList.add("show");
   });
