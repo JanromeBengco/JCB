@@ -362,6 +362,11 @@ h2 {
   color: var(--primary);
   text-decoration: none;
   font-weight: 600;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
 }
 
 .card-actions {
@@ -394,6 +399,64 @@ h2 {
   padding: 1.1rem 0 2rem;
   text-align: center;
   color: var(--muted);
+}
+
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: rgba(6, 10, 22, 0.65);
+  padding: 1rem;
+}
+
+.project-modal.hidden {
+  display: none;
+}
+
+.project-modal-card {
+  width: min(760px, 95vw);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.project-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.project-modal-head h3 {
+  margin: 0;
+}
+
+.project-modal-close {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  width: 34px;
+  height: 34px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+#projectModalList {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+}
+
+#projectModalList a {
+  color: var(--primary);
+}
+
+#projectModalList li + li {
+  margin-top: 0.45rem;
 }
 
 @media (max-width: 900px) {
