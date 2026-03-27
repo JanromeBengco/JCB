@@ -66,3 +66,66 @@ if (profilePhoto && profileFallback) {
     profileFallback.classList.add("show");
   });
 }
+
+const projectData = {
+  task1: {
+    title: "Analytics Midterm Task 1",
+    files: [
+      { label: "Analytics Midterm Task 1 (.zip)", href: "./analytics-midterm-task-1.zip" },
+    ],
+  },
+  task2: {
+    title: "Analytics Midterm Task 2",
+    files: [
+      { label: "Analytics Midterm Task 2 (.zip)", href: "./analytics-midterm-task-2.zip" },
+    ],
+  },
+  task3: {
+    title: "Analytics Midterm Task 3",
+    files: [
+      { label: "Analytics Midterm Task 3 (.zip)", href: "./analytics-midterm-task-3.zip" },
+    ],
+  },
+  inventory: {
+    title: "Inventory Management System",
+    files: [
+      { label: "Inventory Management System (.zip)", href: "./inventory-management-system.zip" },
+    ],
+  },
+};
+
+const projectModal = document.getElementById("projectModal");
+const projectModalTitle = document.getElementById("projectModalTitle");
+const projectModalList = document.getElementById("projectModalList");
+const projectModalClose = document.getElementById("projectModalClose");
+const viewButtons = document.querySelectorAll(".view-project-btn");
+
+function closeProjectModal() {
+  if (!projectModal) return;
+  projectModal.classList.add("hidden");
+  projectModal.setAttribute("aria-hidden", "true");
+}
+
+if (projectModal && projectModalTitle && projectModalList && projectModalClose) {
+  viewButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const projectId = button.dataset.project;
+      const project = projectData[projectId];
+      if (!project) return;
+
+      projectModalTitle.textContent = project.title;
+      projectModalList.innerHTML = project.files
+        .map((file) => `<li><a href="${file.href}" target="_blank" rel="noopener">${file.label}</a></li>`)
+        .join("");
+
+      projectModal.classList.remove("hidden");
+      projectModal.setAttribute("aria-hidden", "false");
+    });
+  });
+
+  projectModalClose.addEventListener("click", closeProjectModal);
+
+  projectModal.addEventListener("click", (event) => {
+    if (event.target === projectModal) closeProjectModal();
+  });
+}
