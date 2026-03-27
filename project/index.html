@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Files</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #e8ecff;
+      line-height: 1.6;
+    }
+    .wrap {
+      width: min(960px, 92%);
+      margin: 2rem auto 3rem;
+    }
+    h1, h2 {
+      margin: 0 0 0.7rem;
+    }
+    .top-actions {
+      margin-bottom: 1rem;
+    }
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.85rem;
+      border-radius: 10px;
+      background: #6ea8fe;
+      color: #071024;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+      transition: transform 120ms ease, background 120ms ease;
+    }
+    .back:hover {
+      background: #4f91ff;
+      transform: translateY(-1px);
+    }
+    .back:active {
+      transform: translateY(0);
+    }
+    .project-card {
+      background: #121a33;
+      border: 1px solid #27345f;
+      border-radius: 12px;
+      padding: 1rem 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .hidden {
+      display: none;
+    }
+    ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.2rem;
+    }
+    a.file-link {
+      color: #9ec2ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top-actions">
+      <a class="back" href="../index.html#projects">← Back to Projects</a>
+    </div>
+    <h1>Project Files</h1>
+    <p>Open any file below to view your project content.</p>
+
+    <section class="project-card" id="task1">
+      <h2>Analytics Midterm Task 1</h2>
+      <ul>
+        <li><a class="file-link" href="../Projects/Analytics%20Midterm%20Task%201/Bike%20Sales_Prepare_Lab%203.4.7_fixed..xlsx" target="_blank" rel="noopener">Bike Sales Prepare Workbook (.xlsx)</a></li>
+        <li><a class="file-link" href="../Projects/Analytics%20Midterm%20Task%201/Data_Model.png" target="_blank" rel="noopener">Data Model Image (.png)</a></li>
+      </ul>
+    </section>
+
+    <section class="project-card" id="task2">
+      <h2>Analytics Midterm Task 2</h2>
+      <ul>
+        <li><a class="file-link" href="../Projects/Analytics%20Midterm%20Task%202/Bengco%20Janrome_Midterm%20Task%202.%20Data%20Analysis%20using%20Pivot%20Table.xlsx" target="_blank" rel="noopener">Data Analysis using Pivot Table (.xlsx)</a></li>
+      </ul>
+    </section>
+
+    <section class="project-card" id="task3">
+      <h2>Analytics Midterm Task 3</h2>
+      <ul>
+        <li><a class="file-link" href="../Projects/Analytics%20Midterm%20Task%203/Student_Record%20Clean.xlsx" target="_blank" rel="noopener">Student Record Clean (.xlsx)</a></li>
+        <li><a class="file-link" href="../Projects/Analytics%20Midterm%20Task%203/Student_Record_Data_Model.PNG" target="_blank" rel="noopener">Student Record Data Model (.png)</a></li>
+        <li><a class="file-link" href="../Projects/Analytics%20Midterm%20Task%203/Query%20-%20Student_Flat_Data%20reference.odc">Query Reference (.odc)</a></li>
+      </ul>
+    </section>
+
+    <section class="project-card" id="inventory">
+      <h2>Inventory Management System</h2>
+      <ul>
+        <li><a class="file-link" href="../project/downloads/inventory-management-system.zip" target="_blank" rel="noopener">Inventory Management System (.zip)</a></li>
+      </ul>
+    </section>
+  </div>
+  <script>
+    (function () {
+      const validIds = ["task1", "task2", "task3", "inventory"];
+      const selected = window.location.hash.replace("#", "");
+      if (!validIds.includes(selected)) return;
+
+      const cards = document.querySelectorAll(".project-card");
+      cards.forEach((card) => {
+        card.classList.toggle("hidden", card.id !== selected);
+      });
+    })();
+  </script>
+</body>
+</html>
